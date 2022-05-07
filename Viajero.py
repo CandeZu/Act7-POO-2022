@@ -39,3 +39,16 @@ class Viajero:
     
     def __sub__(self, millas):
         return Viajero(self.__numViajero,self.__dni,self.__nombre,self.__apellido,self.__millasAcum - millas)
+    
+    def __eq__(self, millas):
+        return (self.cantidadMillas() == millas)
+    
+    # def __radd__ (self, millas):
+    #     print("Millas acumuladas con exito")
+    #     return Viajero(self.__numViajero,self.__dni,self.__nombre,self.__apellido,self.__millasAcum + millas)
+
+    def __radd__(self, millas):
+        return self + millas
+    
+    def __rsub__(self, millas):
+        return self - millas
